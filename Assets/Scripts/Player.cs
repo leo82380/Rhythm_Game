@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private KeyCode[] _upKeyCodes = { KeyCode.E, KeyCode.U };
-    private KeyCode[] _centerKeyCodes = { KeyCode.D, KeyCode.J };
-    private KeyCode[] _downKeyCodes = { KeyCode.C, KeyCode.M };
+    [HideInInspector] public KeyCode[] _upKeyCodes = { KeyCode.Q, KeyCode.W, KeyCode.E, KeyCode.R, KeyCode.T, KeyCode.Y, KeyCode.U, KeyCode.I, KeyCode.O, KeyCode.P};
+    [HideInInspector] public KeyCode[] _centerKeyCodes = { KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.J, KeyCode.K, KeyCode.L };
+    [HideInInspector] public KeyCode[] _downKeyCodes = { KeyCode.Z, KeyCode.X, KeyCode.C, KeyCode.V, KeyCode.B, KeyCode.N, KeyCode.M };
 
     [SerializeField] private GameObject[] playerPos;
     
-    Animator animator;
+    [HideInInspector] public Animator animator;
 
     private void Awake()
     {
@@ -25,25 +25,27 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(_upKeyCodes[0]) || Input.GetKeyDown(_upKeyCodes[1]))
+        foreach (var item in _upKeyCodes)
         {
-            Debug.Log("Up");
-            transform.position = playerPos[0].transform.position;
+            if(Input.GetKeyDown(item))
+            {
+                transform.position = playerPos[0].transform.position;
+            }
         }
-        if (Input.GetKeyDown(_centerKeyCodes[0]) || Input.GetKeyDown(_centerKeyCodes[1]))
+        foreach (var item in _centerKeyCodes)
         {
-            Debug.Log("Center");
-            transform.position = playerPos[1].transform.position;
+            if (Input.GetKeyDown(item))
+            {
+                transform.position = playerPos[1].transform.position;
+            }
         }
-        if (Input.GetKeyDown(_downKeyCodes[0]) || Input.GetKeyDown(_downKeyCodes[1]))
-        {
-            Debug.Log("Down");
-            transform.position = playerPos[2].transform.position;
-        }
-    }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        
+        foreach (var item in _downKeyCodes)
+        {
+            if (Input.GetKeyDown(item))
+            {
+                transform.position = playerPos[2].transform.position;
+            }
+        }
     }
 }

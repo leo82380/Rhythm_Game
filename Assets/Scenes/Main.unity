@@ -754,8 +754,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "E, U - \uC704\uCABD \uC774\uB3D9\nD, J - \uC911\uAC04 \uC774\uB3D9\nC,
-    M - \uC544\uB798\uCABD \uC774\uB3D9"
+  m_text: "\uD0A4\uBCF4\uB4DC \uC717\uC904(Q, W...) - \uC704\uCABD \uC774\uB3D9\n\uD0A4\uBCF4\uB4DC
+    \uC911\uAC04\uC904(A, S...) - \uC911\uAC04 \uC774\uB3D9\n\uD0A4\uBCF4\uB4DC \uC544\uB7AB\uC904(Z,
+    X...) - \uC544\uB798\uCABD \uC774\uB3D9"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2974b17a7685bdc4fac4bf35abeb5216, type: 2}
   m_sharedMaterial: {fileID: -5325911563560759262, guid: 2974b17a7685bdc4fac4bf35abeb5216, type: 2}

@@ -21,4 +21,14 @@ public class Note : MonoBehaviour
     {
         transform.DOMoveX(-50f, duration).SetEase(Ease.Linear).OnComplete(() => Destroy(gameObject));
     }
+
+    private void OnDestroy()
+    {
+        DOTween.Kill(this);
+    }
+
+    private void OnApplicationQuit()
+    {
+        DOTween.KillAll();
+    }
 }
