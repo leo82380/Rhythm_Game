@@ -1,0 +1,14 @@
+{
+  "GlobalObjectId_V1-2-5356bc6e72f59214887c7a5074e65637-1428662849-0": {
+    "GameObjectId": "GlobalObjectId_V1-2-5356bc6e72f59214887c7a5074e65637-1428662849-0",
+    "CommentText": "Main Camera\n",
+    "AssetGUID": "5356bc6e72f59214887c7a5074e65637",
+    "UniqueItemID": "GlobalObjectId_V1-2-5356bc6e72f59214887c7a5074e65637-1428662849-0"
+  },
+  "GlobalObjectId_V1-2-5356bc6e72f59214887c7a5074e65637-1109642547-0": {
+    "GameObjectId": "GlobalObjectId_V1-2-5356bc6e72f59214887c7a5074e65637-1109642547-0",
+    "CommentText": "Player Position",
+    "AssetGUID": "5356bc6e72f59214887c7a5074e65637",
+    "UniqueItemID": "GlobalObjectId_V1-2-5356bc6e72f59214887c7a5074e65637-1109642547-0"
+  }
+}
