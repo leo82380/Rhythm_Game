@@ -11,15 +11,27 @@ public enum NoteType
 }
 public class Note : MonoBehaviour
 {
-    [SerializeField] private NoteType noteType;
+    [SerializeField] public NoteType noteType;
     [SerializeField] private float duration;
+    SpriteRenderer spriteRenderer;
+    Collider2D collider2D;
+    public int count = 0;
     private void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        collider2D = GetComponent<Collider2D>();
         MoveNote(duration);
     }
     void MoveNote(float duration)
     {
-        transform.DOMoveX(-50f, duration).SetEase(Ease.Linear).OnComplete(() => Destroy(gameObject));
+        transform.DOMoveX(-50f, duration).SetEase(Ease.Linear).OnComplete(MoveEnd);
+    }
+
+    public void MoveEnd()
+    {
+        spriteRenderer.color = Color.clear;
+        collider2D.enabled = false;
+        gameObject.name = gameObject.name + "(Hit)";
     }
 
     private void OnDestroy()

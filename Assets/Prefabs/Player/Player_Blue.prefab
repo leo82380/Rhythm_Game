@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2927280230223866129}
   - component: {fileID: 3324197484362891697}
   - component: {fileID: 2791134310827151730}
+  - component: {fileID: 7316916525638543912}
   m_Layer: 0
   m_Name: Player_Blue
   m_TagString: Untagged
@@ -123,3 +124,41 @@ MonoBehaviour:
   _centerKeyCodes: 6100000073000000640000006600000067000000680000006a0000006b0000006c000000
   _downKeyCodes: 7a000000780000006300000076000000620000006e0000006d000000
   playerPos: []
+  animator: {fileID: 0}
+  notes: []
+  firstNote: {fileID: 0}
+--- !u!70 &7316916525638543912
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3011227904842972768}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.5, y: 1.5}
+  m_Direction: 0

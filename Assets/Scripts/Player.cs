@@ -13,6 +13,10 @@ public class Player : MonoBehaviour
     
     [HideInInspector] public Animator animator;
 
+    public GameObject[] notes;
+    public GameObject firstNote;
+    public float shortDis;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -47,5 +51,41 @@ public class Player : MonoBehaviour
                 transform.position = playerPos[2].transform.position;
             }
         }
+
+        notes = GameObject.FindGameObjectsWithTag("Note");
+        if (notes[0] != null)
+        {
+            shortDis = Vector3.Distance(gameObject.transform.position, notes[0].transform.position);
+        }
+
+        firstNote = notes[0]; // 첫번째를 먼저 
+ 
+        foreach (GameObject found in notes)
+        {
+            float Distance = Vector3.Distance(gameObject.transform.position, found.transform.position);
+ 
+            if (Distance < shortDis) // 위에서 잡은 기준으로 거리 재기
+            {
+                firstNote = found;
+                shortDis = Distance;
+            }
+        }
+        if(Vector3.Distance(transform.position, firstNote.transform.position) < 1f && Input.anyKeyDown)
+        {
+            if (firstNote.GetComponent<Note>().noteType == NoteType.Normal)
+            {
+                firstNote.GetComponent<Note>().MoveEnd();
+            }
+            else if (firstNote.GetComponent<Note>().noteType == NoteType.Multiple)
+            {
+                ++firstNote.GetComponent<Note>().count;
+                if (firstNote.GetComponent<Note>().count == 2)
+                {
+                    firstNote.GetComponent<Note>().MoveEnd();
+                    firstNote.GetComponent<Note>().count = 0;
+                }
+            }
+        }
+
     }
 }
