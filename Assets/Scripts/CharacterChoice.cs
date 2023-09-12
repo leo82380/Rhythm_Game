@@ -8,13 +8,13 @@ using DG.Tweening;
 
 public class CharacterChoice : MonoBehaviour
 {
-    [SerializeField] Image characterImage;
-    [SerializeField] Sprite[] characterSprites;
-    [SerializeField] GameObject choicePanel;
+    [SerializeField] private Image characterImage;
+    [SerializeField] private Sprite[] characterSprites;
+    [SerializeField] private GameObject choicePanel;
 
     private void Awake()
     {
-        choicePanel.transform.position = new Vector3(0f, -100f, 0f);
+        choicePanel.transform.position = new Vector3(0f, -50f, 0f);
     }
 
     public void Character(int num)
@@ -30,6 +30,6 @@ public class CharacterChoice : MonoBehaviour
     }
     public void No()
     {
-        choicePanel.transform.DOMoveY(-100f, 0.5f);
+        choicePanel.transform.DOMoveY(-11f, 0.5f);
     }
 }
