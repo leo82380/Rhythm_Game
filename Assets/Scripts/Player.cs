@@ -20,9 +20,9 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        playerPos[0] = GameObject.Find("UpPos");
-        playerPos[1] = GameObject.Find("CenterPos");
-        playerPos[2] = GameObject.Find("DownPos");
+        playerPos[0] = GameObject.Find("=====Position=====").transform.GetChild(1).gameObject;
+        playerPos[1] = GameObject.Find("=====Position=====").transform.GetChild(0).gameObject;
+        playerPos[2] = GameObject.Find("=====Position=====").transform.GetChild(2).gameObject;
         transform.position = playerPos[1].transform.position;
         animator.SetBool("isRun", true);
     }
