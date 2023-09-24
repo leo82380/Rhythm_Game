@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class MainButton : MonoBehaviour
 {
     [SerializeField] [Tooltip("선택한 캐릭터")] private GameObject[] characters;
     [SerializeField] private GameObject howToPlayPanel;
+    [SerializeField] private GameObject songPanel;
+    [SerializeField] private Ease ease;
 
     private void Awake()
     {
@@ -18,15 +21,24 @@ public class MainButton : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("Game");
+        songPanel.transform.DOMoveX(0f, 0.5f).SetEase(ease);
     }
     public void HowToPlay()
     {
-        howToPlayPanel.transform.DOMoveY(0f, 0.5f);
+        howToPlayPanel.transform.DOMoveY(0f, 0.5f).SetEase(ease);
     }
 
-    public void BackMain()
+    public void BackMain(int i)
     {
-        howToPlayPanel.transform.DOMoveY(-100f, 0.5f);
+        switch (i)
+        {
+            case 0:
+                howToPlayPanel.transform.DOMoveY(-25f, 0.5f).SetEase(ease);
+                break;
+            case 1:
+                songPanel.transform.DOMoveX(25f, 0.5f).SetEase(ease);
+                break;
+        }
+        
     }
 }
