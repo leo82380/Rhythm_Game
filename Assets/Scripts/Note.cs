@@ -13,25 +13,25 @@ public class Note : MonoBehaviour
 {
     [SerializeField] public NoteType noteType;
     [SerializeField] private float duration;
-    SpriteRenderer spriteRenderer;
-    Collider2D collider2D;
+    SpriteRenderer _spriteRenderer;
+    Collider2D _collider2D;
     public int count = 0;
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        collider2D = GetComponent<Collider2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _collider2D = GetComponent<Collider2D>();
         MoveNote(duration);
     }
-    void MoveNote(float duration)
+    void MoveNote(float _duration)
     {
-        transform.DOMoveX(-50f, duration).SetEase(Ease.Linear).OnComplete(MoveEnd);
+        transform.DOMoveX(-50f, _duration).SetEase(Ease.Linear).OnComplete(MoveEnd);
     }
 
     public void MoveEnd()
     {
-        spriteRenderer.color = Color.clear;
-        collider2D.enabled = false;
-        gameObject.name = gameObject.name + "(Hit)";
+        _spriteRenderer.color = Color.clear;
+        _collider2D.enabled = false;
+        gameObject.name += "(Hit)";
     }
 
     private void OnDestroy()

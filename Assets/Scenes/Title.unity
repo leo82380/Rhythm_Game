@@ -182,8 +182,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC815\uB9D0 \uC774 \uCE90\uB9AD\uD130\uB85C\\n\uC120\uD0DD\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2974b17a7685bdc4fac4bf35abeb5216, type: 2}
-  m_sharedMaterial: {fileID: -5325911563560759262, guid: 2974b17a7685bdc4fac4bf35abeb5216, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 60cef6e01cece6e43a436904fc09f7d2, type: 2}
+  m_sharedMaterial: {fileID: 5002294521924920206, guid: 60cef6e01cece6e43a436904fc09f7d2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -566,8 +566,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uCDE8\uC18C"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2974b17a7685bdc4fac4bf35abeb5216, type: 2}
-  m_sharedMaterial: {fileID: -5325911563560759262, guid: 2974b17a7685bdc4fac4bf35abeb5216, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 60cef6e01cece6e43a436904fc09f7d2, type: 2}
+  m_sharedMaterial: {fileID: 5002294521924920206, guid: 60cef6e01cece6e43a436904fc09f7d2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -652,7 +652,7 @@ GameObject:
   - component: {fileID: 315082641}
   - component: {fileID: 315082640}
   m_Layer: 0
-  m_Name: nightbackgroundwithmoon
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1497,8 +1497,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC120\uD0DD\uD558\uAE30"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2974b17a7685bdc4fac4bf35abeb5216, type: 2}
-  m_sharedMaterial: {fileID: -5325911563560759262, guid: 2974b17a7685bdc4fac4bf35abeb5216, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 60cef6e01cece6e43a436904fc09f7d2, type: 2}
+  m_sharedMaterial: {fileID: 5002294521924920206, guid: 60cef6e01cece6e43a436904fc09f7d2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1938,8 +1938,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Rhythm Run
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2974b17a7685bdc4fac4bf35abeb5216, type: 2}
-  m_sharedMaterial: {fileID: -5325911563560759262, guid: 2974b17a7685bdc4fac4bf35abeb5216, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 60cef6e01cece6e43a436904fc09f7d2, type: 2}
+  m_sharedMaterial: {fileID: 5002294521924920206, guid: 60cef6e01cece6e43a436904fc09f7d2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1950,7 +1950,7 @@ MonoBehaviour:
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topLeft: {r: 1, g: 0, b: 0, a: 1}
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
@@ -1963,8 +1963,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 200
+  m_fontSizeBase: 200
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
