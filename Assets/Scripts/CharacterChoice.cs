@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -8,6 +9,7 @@ public class CharacterChoice : MonoBehaviour
     [SerializeField] private Image characterImage;
     [SerializeField] private Sprite[] characterSprites;
     [SerializeField] private GameObject choicePanel;
+    [SerializeField] private Fader fader;
 
     private void Awake()
     {
@@ -23,6 +25,12 @@ public class CharacterChoice : MonoBehaviour
     }
     public void Yes()
     {
+        StartCoroutine(YesCoroutine());
+    }
+    IEnumerator YesCoroutine()
+    {
+        fader.Fade();
+        yield return new WaitUntil(() => fader.FadeImage.color.a == 1f);
         SceneManager.LoadScene("Main");
     }
     public void No()

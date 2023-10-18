@@ -136,6 +136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteType: 0
   duration: 10
+  particle: {fileID: 6285081289416668298, guid: 3cfe1cb93904a694780f6ff60e43e861, type: 3}
+  count: 0
 --- !u!50 &-7710280575611416234
 Rigidbody2D:
   serializedVersion: 4

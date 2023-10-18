@@ -4,7 +4,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] GameObject[] playerPrefabs;
 
-    private void Start()
+    private void Awake()
     {
         Instantiate(playerPrefabs[PlayerPrefs.GetInt("Character")], transform.position, Quaternion.identity);
     }

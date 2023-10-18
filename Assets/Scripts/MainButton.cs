@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 
 public class MainButton : MonoBehaviour
 {
-    [SerializeField] [Tooltip("선택한 캐릭터")] private GameObject[] characters;
+    [SerializeField] [Tooltip("선택한 캐릭터")] private List<GameObject> characters;
     [SerializeField] private GameObject howToPlayPanel;
     [SerializeField] private GameObject songPanel;
     [SerializeField] private Ease ease;

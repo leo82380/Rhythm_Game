@@ -13,6 +13,7 @@ public class Note : MonoBehaviour
 {
     [SerializeField] public NoteType noteType;
     [SerializeField] private float duration;
+    [SerializeField] GameObject particle;
     SpriteRenderer _spriteRenderer;
     Collider2D _collider2D;
     public int count = 0;
@@ -32,6 +33,8 @@ public class Note : MonoBehaviour
         _spriteRenderer.color = Color.clear;
         _collider2D.enabled = false;
         gameObject.name += "(Hit)";
+        Instantiate(particle, transform.position, Quaternion.identity);
+        DOTween.Kill(this);
     }
 
     private void OnDestroy()

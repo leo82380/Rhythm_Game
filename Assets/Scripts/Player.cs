@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System;
 
 public enum PlayerType
 {
@@ -12,14 +14,20 @@ public class Player : MonoBehaviour
 {
     public PlayerType playerType;
     public float playerDistance;
+    public Action OnPlayerDie;
+    public Action OnPlayerClear;
     
     [HideInInspector] public KeyCode[] upKeyCodes = { KeyCode.Q, KeyCode.W, KeyCode.E, KeyCode.R, KeyCode.T, KeyCode.Y, KeyCode.U, KeyCode.I, KeyCode.O, KeyCode.P};
     [HideInInspector] public KeyCode[] centerKeyCodes = { KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.J, KeyCode.K, KeyCode.L };
     [HideInInspector] public KeyCode[] downKeyCodes = { KeyCode.Z, KeyCode.X, KeyCode.C, KeyCode.V, KeyCode.B, KeyCode.N, KeyCode.M };
 
     [SerializeField] private GameObject[] playerPos;
+    [SerializeField] private AudioSource audioSource;
+    public AudioSource AudioSource => audioSource;
     
     [HideInInspector] public Animator animator;
+    
+    SongSucces songSucces;
 
     public GameObject[] notes;
     public GameObject firstNote;
@@ -28,16 +36,41 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        #region GetComponents
         animator = GetComponent<Animator>();
+        songSucces = FindObjectOfType<SongSucces>();
+        audioSource = FindObjectOfType<AudioSource>();
+        #endregion
+
+        #region PlayerPos
         playerPos[0] = GameObject.Find("=====Position=====").transform.GetChild(1).gameObject;
         playerPos[1] = GameObject.Find("=====Position=====").transform.GetChild(0).gameObject;
         playerPos[2] = GameObject.Find("=====Position=====").transform.GetChild(2).gameObject;
         transform.position = playerPos[1].transform.position;
+        #endregion
+        
         animator.SetBool(IsRun, true);
+
+        #region CursorLock
+        if (SceneManager.GetActiveScene().name == "ADanceOfFireAndIce"
+            || SceneManager.GetActiveScene().name == "DivineIntervention"
+            || SceneManager.GetActiveScene().name == "ThirdSun"
+            || SceneManager.GetActiveScene().name == "ButterflyPlanet")
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        #endregion
+        
+            
     }
 
     private void Update()
     {
+        #region PlayerPos
         foreach (var item in upKeyCodes)
         {
             if(Input.GetKeyDown(item))
@@ -60,6 +93,7 @@ public class Player : MonoBehaviour
                 transform.position = playerPos[2].transform.position;
             }
         }
+        #endregion
 
         notes = GameObject.FindGameObjectsWithTag("Note");
         if (notes[0] != null)
@@ -95,6 +129,22 @@ public class Player : MonoBehaviour
                 }
             }
         }
+        Die();
+        Clear();
+    }
 
+    private void Die()
+    {
+        if(songSucces.PlayerHP <= 0)
+        {
+            OnPlayerDie?.Invoke();
+        }
+    }
+    private void Clear()
+    {
+        if(audioSource.time >= audioSource.clip.length)
+        {
+            OnPlayerClear?.Invoke();
+        }
     }
 }
