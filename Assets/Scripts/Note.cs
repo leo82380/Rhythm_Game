@@ -14,6 +14,7 @@ public class Note : MonoBehaviour
     [SerializeField] public NoteType noteType;
     [SerializeField] private float duration;
     [SerializeField] GameObject particle;
+    
     SpriteRenderer _spriteRenderer;
     Collider2D _collider2D;
     public int count = 0;

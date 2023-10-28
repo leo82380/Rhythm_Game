@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     public GameObject firstNote;
     public float shortDis;
     private static readonly int IsRun = Animator.StringToHash("isRun");
+    private bool collisionEnter = false;
 
     private void Awake()
     {
@@ -50,22 +51,6 @@ public class Player : MonoBehaviour
         #endregion
         
         animator.SetBool(IsRun, true);
-
-        #region CursorLock
-        if (SceneManager.GetActiveScene().name == "ADanceOfFireAndIce"
-            || SceneManager.GetActiveScene().name == "DivineIntervention"
-            || SceneManager.GetActiveScene().name == "ThirdSun"
-            || SceneManager.GetActiveScene().name == "ButterflyPlanet")
-        {
-            Cursor.lockState = CursorLockMode.Confined;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
-        #endregion
-        
-            
     }
 
     private void Update()
@@ -113,7 +98,7 @@ public class Player : MonoBehaviour
                 shortDis = distance;
             }
         }
-        if(Vector3.Distance(transform.position, firstNote.transform.position) < playerDistance && Input.anyKeyDown)
+        if(Vector3.Distance(transform.position, firstNote.transform.position) < playerDistance && Input.anyKeyDown && collisionEnter)
         {
             if (firstNote.GetComponent<Note>().noteType == NoteType.Normal)
             {
@@ -145,6 +130,14 @@ public class Player : MonoBehaviour
         if(audioSource.time >= audioSource.clip.length)
         {
             OnPlayerClear?.Invoke();
+        }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Note"))
+        {
+            collisionEnter = true;
         }
     }
 }

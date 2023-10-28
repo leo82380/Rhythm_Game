@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 public class MainButton : MonoBehaviour
 {
@@ -12,12 +8,14 @@ public class MainButton : MonoBehaviour
     [SerializeField] private GameObject howToPlayPanel;
     [SerializeField] private GameObject songPanel;
     [SerializeField] private Ease ease;
+    [SerializeField] private Nickname nickname;
 
     private void Awake()
     {
         howToPlayPanel.transform.position = new Vector3(0f, -100f, 0f);
         GameObject character = Instantiate(characters[PlayerPrefs.GetInt("Character")], transform.position, Quaternion.identity);
         character.transform.localScale = new Vector3(5f, 5f, 5f);
+        nickname.NickRead();
     }
     public void StartGame()
     {

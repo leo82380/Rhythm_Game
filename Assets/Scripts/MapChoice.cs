@@ -26,7 +26,7 @@ public class MapChoice : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
     {
         coroutine = VolumeDownRoutine();
         StopCoroutine(coroutine);
-        audioSource.volume = 1f;
+        audioSource.volume = 0.5f;
         audioSource.clip = audioClip;
         audioSource.Play();
     }
@@ -39,6 +39,7 @@ public class MapChoice : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
 
     IEnumerator VolumeDownRoutine()
     {
+        if(audioSource == null) yield break;
         while (audioSource.volume > 0)
         {
             audioSource.volume -= 0.01f;
