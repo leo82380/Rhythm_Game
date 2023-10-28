@@ -13,7 +13,12 @@ public class Spawner : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Clear")
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.transform.localPosition = new Vector3(4f, 4f, 4f);
+            player.transform.localScale = new Vector3(4f, 4f, 4f);
         }
+    }
+
+    public void Again()
+    {
+        SceneManager.LoadScene(0);
     }
 }
