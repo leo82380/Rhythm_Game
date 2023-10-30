@@ -18,6 +18,8 @@ public class Note : MonoBehaviour
     SpriteRenderer _spriteRenderer;
     Collider2D _collider2D;
     public int count = 0;
+    
+    private bool isHit = false;
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -31,6 +33,7 @@ public class Note : MonoBehaviour
 
     private void Miss()
     {
+        if(isHit) return;
         _spriteRenderer.color = Color.clear;
         _collider2D.enabled = false;
         gameObject.name += "(miss)";
@@ -45,6 +48,7 @@ public class Note : MonoBehaviour
         gameObject.name += "(Hit)";
         Instantiate(particle, transform.position, Quaternion.identity);
         DOTween.Kill(this);
+        isHit = true;
     }
 
     private void OnDestroy()
