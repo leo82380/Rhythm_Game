@@ -30,17 +30,26 @@ public class ESC : MonoBehaviour
         {
             if (ESCPanel.activeSelf)
             {
-                ESCPanel.SetActive(false);
-                audioSource.Play();
-                Time.timeScale = 1;
+                Esc(false, 1f);
             }
             else
             {
-                ESCPanel.SetActive(true);
-                audioSource.Pause();
-                Time.timeScale = 0;
+                Esc(true, 0f);
             }
         }
     }
-    
+
+    private void Esc(bool active, float timeScale)
+    {
+        ESCPanel.SetActive(active);
+        if (active)
+        {
+            audioSource.Pause();
+        }
+        else
+        {
+            audioSource.UnPause();
+        }
+        Time.timeScale = timeScale;
+    }
 }

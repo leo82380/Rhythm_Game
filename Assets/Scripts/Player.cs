@@ -103,6 +103,7 @@ public class Player : MonoBehaviour
             if (firstNote.GetComponent<Note>().noteType == NoteType.Normal)
             {
                 firstNote.GetComponent<Note>().MoveEnd();
+                UIManager.Instance.UpdateJudgeText(JudgeType.Perfect);
             }
             else if (firstNote.GetComponent<Note>().noteType == NoteType.Multiple)
             {
@@ -110,6 +111,7 @@ public class Player : MonoBehaviour
                 if (firstNote.GetComponent<Note>().count == 2)
                 {
                     firstNote.GetComponent<Note>().MoveEnd();
+                    UIManager.Instance.UpdateJudgeText(JudgeType.Perfect);
                     firstNote.GetComponent<Note>().count = 0;
                 }
             }

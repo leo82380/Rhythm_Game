@@ -837,6 +837,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1701728595884850414, guid: c0a96fab9ebcd144783bd517a6b8e122, type: 3}
   m_PrefabInstance: {fileID: 859371248}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &859371250 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7898258358493821327, guid: c0a96fab9ebcd144783bd517a6b8e122, type: 3}
+  m_PrefabInstance: {fileID: 859371248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1061409508 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5206085863006322207, guid: 02ccda79180832441b392822e4f3f1c9, type: 3}
@@ -1725,6 +1736,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4620396620242310218, guid: ba434a4f88031164a9f0cbac2641d984, type: 3}
   m_PrefabInstance: {fileID: 1617424862}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1617424864 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5063862991275208088, guid: ba434a4f88031164a9f0cbac2641d984, type: 3}
+  m_PrefabInstance: {fileID: 1617424862}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1699997083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1805,6 +1827,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progressText: {fileID: 2075756881}
   attemptsText: {fileID: 820020563}
+  perfectText: {fileID: 1617424864}
+  missText: {fileID: 859371250}
   audioSource: {fileID: 770828969}
 --- !u!4 &1885089459
 Transform:

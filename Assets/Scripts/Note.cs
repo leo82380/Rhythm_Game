@@ -26,7 +26,16 @@ public class Note : MonoBehaviour
     }
     void MoveNote(float _duration)
     {
-        transform.DOMoveX(-50f, _duration).SetEase(Ease.Linear).OnComplete(MoveEnd);
+        transform.DOMoveX(-50f, _duration).SetEase(Ease.Linear).OnComplete(Miss);
+    }
+
+    private void Miss()
+    {
+        _spriteRenderer.color = Color.clear;
+        _collider2D.enabled = false;
+        gameObject.name += "(miss)";
+        DOTween.Kill(this);
+        UIManager.Instance.UpdateJudgeText(JudgeType.Miss);
     }
 
     public void MoveEnd()

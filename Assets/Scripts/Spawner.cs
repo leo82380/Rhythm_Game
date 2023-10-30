@@ -14,6 +14,7 @@ public class Spawner : MonoBehaviour
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             player.transform.localScale = new Vector3(4f, 4f, 4f);
+            player.GetComponent<SpriteRenderer>().flipX = true;
         }
     }
 

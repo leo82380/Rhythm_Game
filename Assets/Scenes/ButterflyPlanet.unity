@@ -566,6 +566,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4620396620242310218, guid: ba434a4f88031164a9f0cbac2641d984, type: 3}
   m_PrefabInstance: {fileID: 184692803}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &184692805 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5063862991275208088, guid: ba434a4f88031164a9f0cbac2641d984, type: 3}
+  m_PrefabInstance: {fileID: 184692803}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &215085169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -902,6 +913,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progressText: {fileID: 97387608}
   attemptsText: {fileID: 434488422}
+  perfectText: {fileID: 184692805}
+  missText: {fileID: 580776264}
   audioSource: {fileID: 922210353}
 --- !u!4 &405044128
 Transform:
@@ -1133,6 +1146,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1701728595884850414, guid: c0a96fab9ebcd144783bd517a6b8e122, type: 3}
   m_PrefabInstance: {fileID: 580776262}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &580776264 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7898258358493821327, guid: c0a96fab9ebcd144783bd517a6b8e122, type: 3}
+  m_PrefabInstance: {fileID: 580776262}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &600911824
 PrefabInstance:
   m_ObjectHideFlags: 0
