@@ -19,17 +19,11 @@ public class NoteManager : MonoBehaviour
     }
     IEnumerator SpawnNotes()
     {
-        int index = 0;
-        index = Mathf.Clamp(index, 0, notes.Count - 1);
         while(true)
         {
-            yield return new WaitForSeconds(1f);
-            notes[index].SpawnNote();
-            index++;
-            if(index == notes.Count)
-            {
-                index = 0;
-            }
+            yield return new WaitForSeconds(.6f);
+            int random = UnityEngine.Random.Range(0, notes.Count);
+            notes[random].SpawnNote();
         }
     }
 }

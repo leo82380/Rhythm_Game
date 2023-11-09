@@ -98,23 +98,10 @@ public class Player : MonoBehaviour
                 shortDis = distance;
             }
         }
-        if(Vector3.Distance(transform.position, firstNote.transform.position) < playerDistance && Input.anyKeyDown && collisionEnter)
+        if(Vector3.Distance(transform.position, firstNote.transform.position) < playerDistance && Input.anyKeyDown && collisionEnter && !firstNote.GetComponent<Note>().IsHit)
         {
-            if (firstNote.GetComponent<Note>().noteType == NoteType.Normal)
-            {
-                firstNote.GetComponent<Note>().MoveEnd();
-                UIManager.Instance.UpdateJudgeText(JudgeType.Perfect);
-            }
-            else if (firstNote.GetComponent<Note>().noteType == NoteType.Multiple)
-            {
-                ++firstNote.GetComponent<Note>().count;
-                if (firstNote.GetComponent<Note>().count == 2)
-                {
-                    firstNote.GetComponent<Note>().MoveEnd();
-                    UIManager.Instance.UpdateJudgeText(JudgeType.Perfect);
-                    firstNote.GetComponent<Note>().count = 0;
-                }
-            }
+            firstNote.GetComponent<Note>().MoveEnd();
+            UIManager.Instance.UpdateJudgeText(JudgeType.Perfect);
         }
         Die();
         Clear();

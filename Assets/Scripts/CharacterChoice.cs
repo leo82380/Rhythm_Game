@@ -13,13 +13,14 @@ public class CharacterChoice : MonoBehaviour
     [SerializeField] private GameObject nickNamePanel;
     [SerializeField] private Fader fader;
     [SerializeField] private Nickname nickname;
+    [SerializeField] private AudioSource audioSource;
 
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private TMP_Text label;
 
     private void Awake()
     {
-        if (choicePanel == null)
+        if (choicePanel != null)
         {
             choicePanel.transform.position = new Vector3(0f, -50f, 0f);
         }
@@ -33,6 +34,7 @@ public class CharacterChoice : MonoBehaviour
         {
             characterImage.sprite = characterSprites[num];
             choicePanel.transform.DOMoveY(0f, 0.5f);
+            audioSource.Play();
         }
     }
 
@@ -41,11 +43,13 @@ public class CharacterChoice : MonoBehaviour
         if (characterImage != null)
         {
             nickNamePanel.transform.DOMoveY(0f, 0.5f);
+            audioSource.Play();
         }
     }
     public void Yes()
     {
         StartCoroutine(YesCoroutine());
+        audioSource.Play();
     }
     IEnumerator YesCoroutine()
     {
@@ -78,6 +82,7 @@ public class CharacterChoice : MonoBehaviour
         {
             choicePanel.transform.DOMoveY(-11f, 0.5f);
             nickNamePanel.transform.DOMoveY(-11f, 0.5f);
+            audioSource.Play();
         }
     }
 }

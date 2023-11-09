@@ -80,7 +80,12 @@ public class UIManager : Singleton<UIManager>
         Debug.Log("Attempts1: " + attempts);
         PlayerPrefs.SetInt("Attempts" + SceneManager.GetActiveScene().name, attempts);
     }
-    
+
+    private void OnDestroy()
+    {
+        PlayerPrefs.SetInt("Perfect", perfect);
+        PlayerPrefs.SetInt("Miss", miss);
+    }
 }
 
 public enum JudgeType

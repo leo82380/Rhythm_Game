@@ -13,7 +13,7 @@ public class Nickname : MonoBehaviour
     {
         if (inputField.text.Length > 0)
         {
-            File.WriteAllText(Application.dataPath + "/nickname.txt", inputField.text);
+            File.WriteAllText(Application.persistentDataPath + "/nickname.txt", inputField.text);
         }
         else
         {
@@ -24,7 +24,7 @@ public class Nickname : MonoBehaviour
 
     public void NickRead()
     {
-        string nick = File.ReadAllText(Application.dataPath + "/nickname.txt");
+        string nick = File.ReadAllText(Application.persistentDataPath + "/nickname.txt");
         text.text = nick;
     }
 }

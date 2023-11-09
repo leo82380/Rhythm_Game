@@ -8,7 +8,7 @@ using DG.Tweening;
 
 public class SongSucces : MonoBehaviour
 {
-    private Player player;
+    private Player2 player;
     private Fader fader;
     private Note[] notes;
     
@@ -32,13 +32,13 @@ public class SongSucces : MonoBehaviour
     {
         try
         {
-            player = FindObjectOfType<Player>();
+            player = FindObjectOfType<Player2>();
             fader = FindObjectOfType<Fader>();
             notes = FindObjectsOfType<Note>();
         }
         catch
         {
-            player = FindObjectOfType<Player>();
+            player = FindObjectOfType<Player2>();
             fader = FindObjectOfType<Fader>();
             notes = FindObjectsOfType<Note>();
         }
@@ -46,26 +46,24 @@ public class SongSucces : MonoBehaviour
 
     private void Start()
     {
-        player.OnPlayerDie += Die;
         player.OnPlayerClear += Clear;
     }
 
     private void OnDestroy()
     {
-        player.OnPlayerDie -= Die;
         player.OnPlayerClear -= Clear;
     }
 
-    private void Die()
-    {
-        StartCoroutine(PlayerDieRoutine());
-    }
-    IEnumerator PlayerDieRoutine()
-    {
-        fader.Fade();
-        yield return new WaitUntil(() => fader.FadeImage.color.a >= 1f);
-        SceneManager.LoadScene("GameOver");
-    }
+    // private void Die()
+    // {
+    //     StartCoroutine(PlayerDieRoutine());
+    // }
+    // IEnumerator PlayerDieRoutine()
+    // {
+    //     fader.Fade();
+    //     yield return new WaitUntil(() => fader.FadeImage.color.a >= 1f);
+    //     SceneManager.LoadScene("GameOver");
+    // }
 
     private void Clear()
     {

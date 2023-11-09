@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public enum Map
 {
@@ -16,9 +18,18 @@ public class MapChoice : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
     public Map map;
     public AudioSource audioSource;
     public AudioClip audioClip;
-    IEnumerator coroutine;
+    private IEnumerator coroutine;
+    [SerializeField] private Image image;
+    [SerializeField] private AudioSource clickAudioSource;
+    
     public void OnPointerClick(PointerEventData eventData)
     {
+        clickAudioSource.Play();
+        if (map != Map.ADanceOfFireAndIce)
+        {
+            image.transform.DOMoveY(0, 1f);
+            return;
+        }
         SceneManager.LoadScene(map.ToString());
     }
 
@@ -47,5 +58,11 @@ public class MapChoice : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
                 audioSource.Stop();
             yield return null;
         }
+    }
+
+    public void Back()
+    {
+        clickAudioSource.Play();
+        image.transform.DOMoveY(-100, 1f);
     }
 }
