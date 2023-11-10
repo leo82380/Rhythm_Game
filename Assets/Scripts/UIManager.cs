@@ -20,7 +20,9 @@ public class UIManager : Singleton<UIManager>
     private int attempts;
 
     float curTime = 0f;
-    float progress = 0f;
+    [SerializeField] float progress = 0f;
+    
+    public float Progress => progress;
     
     private void Start()
     {

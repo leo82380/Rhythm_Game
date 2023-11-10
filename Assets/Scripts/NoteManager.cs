@@ -6,6 +6,9 @@ using UnityEngine;
 public class NoteManager : MonoBehaviour
 {
     [SerializeField] List<NoteSpawner> notes;
+    [SerializeField] float bpm = 0;
+    double currentTime = 0d;
+    private int randomIndex;
 
     private void Awake()
     {
@@ -15,15 +18,27 @@ public class NoteManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnNotes());
+        StartCoroutine(Random());
     }
-    IEnumerator SpawnNotes()
+
+    private void Update()
     {
-        while(true)
+        if(UIManager.Instance.Progress >= 97.5f) return;
+        if (UIManager.Instance.Progress >= 82.3f) bpm = 37.5f; 
+        currentTime += Time.deltaTime; 
+        if (currentTime >= 60d / bpm) 
+        { 
+            notes[randomIndex].Spawn();
+            currentTime -= 60d / bpm;
+        }
+    }
+
+    IEnumerator Random()
+    {
+        while (UIManager.Instance.Progress < 100)
         {
-            yield return new WaitForSeconds(.6f);
-            int random = UnityEngine.Random.Range(0, notes.Count);
-            notes[random].SpawnNote();
+            randomIndex = UnityEngine.Random.Range(0, notes.Count);
+            yield return new WaitForSeconds(1f);
         }
     }
 }

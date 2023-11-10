@@ -13,6 +13,7 @@ public class Player2 : MonoBehaviour
     private float minPos = -4.5f;
     private float maxPos = 4.5f;
     
+    
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -32,13 +33,4 @@ public class Player2 : MonoBehaviour
             OnPlayerClear?.Invoke();
         }
     }
-    
-    // private void OnTriggerEnter2D(Collider2D collision)
-    // {
-    //     if (collision.CompareTag("Note"))
-    //     {
-    //         collision.GetComponent<Note>().MoveEnd();
-    //         UIManager.Instance.UpdateJudgeText(JudgeType.Perfect);
-    //     }
-    // }
 }

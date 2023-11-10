@@ -22,7 +22,7 @@ public class ESC : MonoBehaviour
 
     void Update()
     {
-        if(delaySong.IsSongStarted == false) return;
+//        if(delaySong.IsSongStarted == false) return;
         if(ESCPanel == null) return;
         if(audioSource == null) return;
 

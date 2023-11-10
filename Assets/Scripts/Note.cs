@@ -33,7 +33,7 @@ public class Note : MonoBehaviour
 
     void MoveNote(float _duration)
     {
-        transform.DOMoveX(-50f, _duration).SetEase(Ease.Linear).OnComplete(Miss);
+        transform.DOMoveX(-50f, _duration).OnComplete(Miss);
     }
 
     private void Miss()

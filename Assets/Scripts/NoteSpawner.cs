@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class NoteSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject[] notePrefab;
     
-    public void SpawnNote()
+    
+    [SerializeField] Transform noteAppear = null;
+    [SerializeField] GameObject notePrefab = null;
+
+    
+
+    public void Spawn()
     {
-        int random = Random.Range(0, notePrefab.Length);
-        Instantiate(notePrefab[random], transform.position, Quaternion.identity);
+        GameObject note = Instantiate(notePrefab, noteAppear.position, Quaternion.identity);
+        note.transform.SetParent(this.transform);
     }
 }

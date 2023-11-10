@@ -34,6 +34,8 @@ public class Player : MonoBehaviour
     public float shortDis;
     private static readonly int IsRun = Animator.StringToHash("isRun");
     private bool collisionEnter = false;
+    
+    bool isMusicStart = false;
 
     private void Awake()
     {
@@ -125,7 +127,7 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Note"))
-        {
+        { 
             collisionEnter = true;
         }
     }
