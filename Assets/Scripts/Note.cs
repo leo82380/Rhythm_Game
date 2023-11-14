@@ -38,7 +38,7 @@ public class Note : MonoBehaviour
 
     private void Miss()
     {
-        if(isHit) return;
+        if (isHit) return;
         _spriteRenderer.color = Color.clear;
         _collider2D.enabled = false;
         gameObject.name += "(miss)";
@@ -49,7 +49,7 @@ public class Note : MonoBehaviour
 
     public void MoveEnd()
     {
-        if(isHit) return;
+        if (isHit) return;
         _spriteRenderer.color = Color.clear;
         _collider2D.enabled = false;
         gameObject.name += "(Hit)";

@@ -12,6 +12,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] TMP_Text perfectText;
     [SerializeField] TMP_Text missText;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] VolumController volumController;
     
     public JudgeType JudgeType { get; set; }
 
@@ -26,6 +27,7 @@ public class UIManager : Singleton<UIManager>
     
     private void Start()
     {
+        JudgeType = JudgeType.None;
         UpdateAttemptsText();
         if(PlayerPrefs.HasKey("Attempts" + SceneManager.GetActiveScene().name))
         {
@@ -58,12 +60,19 @@ public class UIManager : Singleton<UIManager>
         switch(judgeType)
         {
             case JudgeType.Perfect:
+                JudgeType = JudgeType.Perfect;
                 perfect++;
                 perfectText.text = perfect.ToString();
+                volumController.StartCoroutine(volumController.ColorChange());
                 break;
             case JudgeType.Miss:
+                JudgeType = JudgeType.Miss; 
                 miss++;
                 missText.text = miss.ToString();
+                volumController.StartCoroutine(volumController.ColorChange());
+                break;
+            case JudgeType.None:
+                volumController.StartCoroutine(volumController.ColorChange());
                 break;
         }
     }
@@ -93,5 +102,6 @@ public class UIManager : Singleton<UIManager>
 public enum JudgeType
 {
     Perfect,
-    Miss
+    Miss,
+    None
 }
