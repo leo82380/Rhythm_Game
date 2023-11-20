@@ -16,7 +16,6 @@ public class VolumController : MonoBehaviour
     }
     public IEnumerator ColorChange()
     {
-        print(UIManager.Instance.JudgeType);
         if (UIManager.Instance.JudgeType == JudgeType.Perfect)
         {
             vignette.color.value = new Color(0, 0.04362191f, 0.3113208f);
