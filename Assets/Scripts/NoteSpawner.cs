@@ -9,7 +9,7 @@ public class NoteSpawner : MonoBehaviour
     [SerializeField] Transform noteAppear = null;
     [SerializeField] GameObject notePrefab = null;
 
-    
+    public GameObject NotePrefab => notePrefab;
 
     public void Spawn()
     {

@@ -9,9 +9,17 @@ public enum NoteType
     Normal,
     Multiple
 }
+
+public enum NotePos
+{
+    Up,
+    Center,
+    Down
+}
 public class Note : MonoBehaviour
 {
     [SerializeField] public NoteType noteType;
+    [SerializeField] public NotePos notePos;
     [SerializeField] private float duration;
     [SerializeField] GameObject particle;
     

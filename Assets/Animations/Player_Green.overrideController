@@ -9,9 +9,9 @@ AnimatorOverrideController:
   m_Name: Player_Green
   m_Controller: {fileID: 9100000, guid: adfd4062662005741a7d17f964f70673, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: ddce81d5294ab4d419414eda215d9e24, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 26b38c27d058a334d8b7a9aa6c36e331, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: b42551584d8dc3c44b1db862149dea9c, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 859aa8dfe273986409e17e40eaae6a79, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: b28fad07cc88eb94992a5da2051f8ceb, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 0981393347f6aec44b64fce6592b4720, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6163f9034d800ef4087f7d9b264e3b26, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 231700ba85dfd814195811a1f3c3c8bc, type: 2}

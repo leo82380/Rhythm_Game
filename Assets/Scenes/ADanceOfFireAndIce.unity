@@ -437,6 +437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notes: []
+  song: {fileID: 1719989055}
   bpm: 150
 --- !u!114 &771546778
 MonoBehaviour:
@@ -976,6 +977,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3804315712970114600, guid: 5d0d14bdf76e9e54c878fd88f606d398, type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3804315712970114600, guid: 5d0d14bdf76e9e54c878fd88f606d398, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3804315712970114600, guid: 5d0d14bdf76e9e54c878fd88f606d398, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 6896871380565663872, guid: 0a340339e9e6b114f98562bb663688c5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1453,7 +1466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 771010145676422276, guid: 6f2abad9925cd5e4d8be000bf95d872b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 455.63
+      value: 58.54
       objectReference: {fileID: 0}
     - target: {fileID: 771010145676422276, guid: 6f2abad9925cd5e4d8be000bf95d872b, type: 3}
       propertyPath: m_SizeDelta.y

@@ -10,12 +10,18 @@ public enum PlayerType
     Yellow,
     Blue
 }
+public enum PlayerPos
+{
+    Up,
+    Center,
+    Down
+}
 
 public class Player : MonoBehaviour
 {
     public PlayerType playerType;
+    public PlayerPos playerPosEnum;
     public float playerDistance;
-    public Action OnPlayerDie;
     public Action OnPlayerClear;
     
     [HideInInspector] public KeyCode[] upKeyCodes = { KeyCode.Q, KeyCode.W, KeyCode.E, KeyCode.R, KeyCode.T, KeyCode.Y, KeyCode.U, KeyCode.I, KeyCode.O, KeyCode.P};
@@ -59,26 +65,31 @@ public class Player : MonoBehaviour
     private void Update()
     {
         #region PlayerPos
+        if (Input.anyKeyDown)
+            animator.SetTrigger("Kick");
         foreach (var item in upKeyCodes)
         {
-            if(Input.GetKeyDown(item))
+            if(Input.GetKeyDown(item) || Input.GetKeyDown(KeyCode.Alpha1))
             {
                 transform.position = playerPos[0].transform.position;
+                playerPosEnum = PlayerPos.Up;
             }
         }
         foreach (var item in centerKeyCodes)
         {
-            if (Input.GetKeyDown(item))
+            if (Input.GetKeyDown(item) || Input.GetKeyDown(KeyCode.Alpha2))
             {
                 transform.position = playerPos[1].transform.position;
+                playerPosEnum = PlayerPos.Center;
             }
         }
 
         foreach (var item in downKeyCodes)
         {
-            if (Input.GetKeyDown(item))
+            if (Input.GetKeyDown(item) || Input.GetKeyDown(KeyCode.Alpha3))
             {
                 transform.position = playerPos[2].transform.position;
+                playerPosEnum = PlayerPos.Down;
             }
         }
         #endregion
@@ -101,22 +112,15 @@ public class Player : MonoBehaviour
                 shortDis = distance;
             }
         }
-        if(Vector3.Distance(transform.position, firstNote.transform.position) < playerDistance && Input.anyKeyDown && collisionEnter && !firstNote.GetComponent<Note>().IsHit)
+        if(Vector3.Distance(transform.position, firstNote.transform.position) < playerDistance && Input.anyKeyDown && collisionEnter && !firstNote.GetComponent<Note>().IsHit 
+           && firstNote.GetComponent<Note>().notePos.ToString() == playerPosEnum.ToString())
         {
             firstNote.GetComponent<Note>().MoveEnd();
             UIManager.Instance.UpdateJudgeText(JudgeType.Perfect);
         }
-        Die();
         Clear();
     }
-
-    private void Die()
-    {
-        if(songSucces.PlayerHP <= 0)
-        {
-            OnPlayerDie?.Invoke();
-        }
-    }
+    
     private void Clear()
     {
         if(audioSource.time >= audioSource.clip.length)

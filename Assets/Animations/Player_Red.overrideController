@@ -9,9 +9,9 @@ AnimatorOverrideController:
   m_Name: Player_Red
   m_Controller: {fileID: 9100000, guid: adfd4062662005741a7d17f964f70673, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: ddce81d5294ab4d419414eda215d9e24, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 320ffd16bcb9e4348a2a7c1d7e1e8a65, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: b42551584d8dc3c44b1db862149dea9c, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 4f08c02e099e9c34cafe319cbf735cd7, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: b28fad07cc88eb94992a5da2051f8ceb, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 72350d26667d7514090aa9d3670719e5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6163f9034d800ef4087f7d9b264e3b26, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e58ca492cb0ef4f479e92e2583bf745a, type: 2}

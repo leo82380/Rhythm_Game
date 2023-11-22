@@ -48,9 +48,9 @@ public class UIManager : Singleton<UIManager>
     private void Update()
     {
         if(!audioSource.isPlaying) return;
-        curTime += Time.deltaTime;
+        curTime += Time.deltaTime * audioSource.pitch;
         float aLen = audioSource.clip.length;
-        progress = Mathf.Round(curTime / aLen * 100); 
+        progress = Mathf.Round(curTime / aLen * 100);
 
         progressText.text = "Progress: " + progress + "%";
     }
