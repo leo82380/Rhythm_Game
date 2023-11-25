@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
+using Logger = Log.Logger;
 
 public enum PlayerType
 {

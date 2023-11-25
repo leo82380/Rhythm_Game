@@ -48,13 +48,22 @@ public class UIManager : Singleton<UIManager>
     private void Update()
     {
         if(!audioSource.isPlaying) return;
+        ProgressUpdate();
+        if (progress >= 100)
+        {
+            NickClear.Instance.ClearSave(perfect, miss);
+        }
+    }
+
+    private void ProgressUpdate()
+    {
         curTime += Time.deltaTime * audioSource.pitch;
         float aLen = audioSource.clip.length;
         progress = Mathf.Round(curTime / aLen * 100);
 
         progressText.text = "Progress: " + progress + "%";
     }
-    
+
     public void UpdateJudgeText(JudgeType judgeType)
     {
         switch(judgeType)
@@ -90,12 +99,6 @@ public class UIManager : Singleton<UIManager>
         attempts++;
         Debug.Log("Attempts1: " + attempts);
         PlayerPrefs.SetInt("Attempts" + SceneManager.GetActiveScene().name, attempts);
-    }
-
-    private void OnDestroy()
-    {
-        PlayerPrefs.SetInt("Perfect", perfect);
-        PlayerPrefs.SetInt("Miss", miss);
     }
 }
 

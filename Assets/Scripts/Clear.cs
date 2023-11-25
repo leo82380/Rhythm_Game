@@ -8,10 +8,13 @@ public class Clear : MonoBehaviour
 {
     [SerializeField] private TMP_Text perfectText;
     [SerializeField] private TMP_Text missText;
+    [SerializeField] private TMP_Text clearText;
 
     private void Awake()
     {
-        perfectText.text = "Perfect " + PlayerPrefs.GetInt("Perfect").ToString();
-        missText.text = "Miss     " + PlayerPrefs.GetInt("Miss").ToString();
+        clearText.text = NickClear.Instance.PlayerData.miss == 0 ? "Stage Perfect!" : "Stage Clear!";
+
+        perfectText.text = "Perfect " + NickClear.Instance.PlayerData.perfect;
+        missText.text = "Miss     " + NickClear.Instance.PlayerData.miss;
     }
 }

@@ -11,20 +11,11 @@ public class Nickname : MonoBehaviour
     [SerializeField] private TMP_Text text;
     public void Nick()
     {
-        if (inputField.text.Length > 0)
-        {
-            File.WriteAllText(Application.persistentDataPath + "/nickname.txt", inputField.text);
-        }
-        else
-        {
-            return;
-        }
-            
+        NickClear.Instance.NickNameSave();
     }
 
     public void NickRead()
     {
-        string nick = File.ReadAllText(Application.persistentDataPath + "/nickname.txt");
-        text.text = nick;
+        NickClear.Instance.NickNameRead();
     }
 }

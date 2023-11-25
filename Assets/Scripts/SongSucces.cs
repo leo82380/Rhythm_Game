@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
+using Logger = Log.Logger;
 
 public class SongSucces : MonoBehaviour
 {
@@ -14,19 +15,6 @@ public class SongSucces : MonoBehaviour
     
     
     private float playerHP = 100f;
-    public float PlayerHP
-    {
-        get => playerHP;
-        set
-        {
-            playerHP = value;
-            if (playerHP <= 0f)
-            {
-                playerHP = 0f;
-                Debug.Log("Player Die");
-            }
-        }
-    }
 
     private void Awake()
     {
@@ -80,6 +68,7 @@ public class SongSucces : MonoBehaviour
             item.MoveEnd();
         }
         yield return new WaitUntil(() => fader.FadeImage.color.a >= 1f);
+        Logger.ColorLog("Clear", Color.green, false);
         SceneManager.LoadScene("Clear");
     }
 }

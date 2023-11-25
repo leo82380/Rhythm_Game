@@ -24,6 +24,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             Destroy(instance);
         }
         instance = this as T;
+        DontDestroyOnLoad(this.gameObject);
     }
     protected virtual void OnDestroy()
     {
