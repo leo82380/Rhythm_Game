@@ -916,6 +916,8 @@ MonoBehaviour:
   perfectText: {fileID: 184692805}
   missText: {fileID: 580776264}
   audioSource: {fileID: 922210353}
+  volumController: {fileID: 0}
+  progress: 0
 --- !u!4 &405044128
 Transform:
   m_ObjectHideFlags: 0

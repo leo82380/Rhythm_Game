@@ -27,6 +27,7 @@ public class UIManager : Singleton<UIManager>
     
     private void Start()
     {
+        if (SceneManager.GetActiveScene().name != "ADanceOfFireAndIce") return;
         JudgeType = JudgeType.None;
         UpdateAttemptsText();
         if(PlayerPrefs.HasKey("Attempts" + SceneManager.GetActiveScene().name))
@@ -47,6 +48,7 @@ public class UIManager : Singleton<UIManager>
     }
     private void Update()
     {
+        if (SceneManager.GetActiveScene().name != "ADanceOfFireAndIce") return;
         if(!audioSource.isPlaying) return;
         ProgressUpdate();
         if (progress >= 100)
